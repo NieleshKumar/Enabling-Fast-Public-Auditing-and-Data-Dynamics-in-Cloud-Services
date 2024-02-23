@@ -1,0 +1,57 @@
+{% extends "csphome.html" %}
+{% block content %}
+
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<h2 style="color:black">User Details</h2>
+<div class="card">
+    <table>
+        <th style="text-align:center;color:black;">User Id</th>
+        <th style="text-align:center;color:black;">User Name</th>
+        <th style="text-align:center;color:black;">User Email</th>
+        <th style="text-align:center;color:black;">User Contact</th>
+        <th style="text-align:center;color:black;">User Address</th>
+        <th style="text-align:center;color:black;">Registered Date</th>
+        <th style="text-align:center;color:black;">Status</th>
+
+        <tr>
+            {% for j in dc %}
+
+        <tr>
+            <td style="text-align:center;color:black;">{{j.id}}</td>
+            <td style="text-align:center;color:black;">{{j.user_name}}</td>
+            <td style="text-align:center;color:black;">{{j.user_email}}</td>
+            <td style="text-align:center;color:black;">{{j.user_contact}}</td>
+            <td style="text-align:center;color:black;">{{j.user_address}}</td>
+            <td style="text-align:center;color:black;">{{j.registered_date}}</td>
+            <td style="text-align:center;color:black;">{{j.status}}</td>
+
+        </tr>
+        {% endfor %}
+        </tr>
+
+    </table>
+
+
+
+
+
+
+    {% endblock %}

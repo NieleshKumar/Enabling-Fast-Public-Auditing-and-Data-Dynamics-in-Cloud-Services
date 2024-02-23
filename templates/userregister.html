@@ -1,0 +1,88 @@
+{% extends "index.html" %}
+{% block content %}
+<section class="about_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+
+      <h2 style="
+        bottom: 50px;
+    ">
+        Enabling Fast Public Auditing and Data Dynamics in Cloud Services
+      </h2>
+    </div>
+    <center>
+      <div class="col-md-6">
+        <div class="detail-box">
+          <center>
+            <h3>
+              User Registration
+            </h3>
+          </center>
+
+          <center>
+            {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="{% url 'useregister' %}" class="form-control" style="height:30rem" method="post">
+              {% csrf_token %}
+              <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">User Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticEmail" name="username" required style="
+                            width: 379px;
+                        ">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="staticEmail" name="useremail" required style="
+                            width: 379px;
+                        ">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword" name="password" style="
+                            width: 379px;
+                        ">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Contact</label>
+                <div class="col-sm-10">
+                  <input type="tel" pattern="[0-9]{10}" class="form-control" id="inputPassword" name="contact" required
+                    style="
+                                width: 379px;
+                            ">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword" name="address" required style="
+                            width: 379px;
+                        ">
+                </div>
+              </div>
+
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Register</button>
+              </div>
+
+              <a style="color:blue;" href="{% url 'userlogin' %}" type="submit">Already Have An Account?<b> Login</a>
+
+            </form>
+
+        </div>
+      </div>
+    </center>
+  </div>
+  </div>
+</section>
+{% endblock %}

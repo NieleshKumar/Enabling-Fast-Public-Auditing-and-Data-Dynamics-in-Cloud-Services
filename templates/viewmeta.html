@@ -1,0 +1,75 @@
+{% extends "tpahome.html" %}
+{% block content %}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+
+
+<center>
+    <h2 style="color:black;">My Files</h2>
+    <a href="{% url 'integrity' %}" class="btn btn-primary">Back</a>
+</center>
+<div class="card">
+    <table>
+        <tr>
+            <th style="text-align:center;color:black;">Attribute</th>
+            <th style="text-align:center;color:black;">Value</th>
+        </tr>
+
+        {% for j in dc %}
+        <tr>
+            <td style="text-align:center;color:black;">File Id</td>
+            <td style="text-align:center;color:black;">{{ j.id }}</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;color:black;">File Name</td>
+            <td style="text-align:center;color:black;">{{ j.filename }}</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;color:black;">File Created </td>
+            <td style="text-align:center;color:black;">{{ j.uploadeddate }}</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;color:black;">Homomorphic Hash</td>
+            <td style="text-align:center;color:black;">{{ j.hashcodeone }}</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;color:black;">Block 1</td>
+            <td style="text-align:center;color:black;">{{ j.keyone}}</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;color:black;">Block 2</td>
+            <td style="text-align:center;color:black;">{{ j.keytwo }}</td>
+        </tr>
+        <tr>
+            <td style="text-align:center;color:black;">Block 3</td>
+            <td style="text-align:center;color:black;">{{ j.keythree }}</td>
+        </tr>
+        <td style="text-align:center;color:black;">Block 4</td>
+        <td style="text-align:center;color:black;">{{ j.keyfour }}</td>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+
+
+{% endblock %}

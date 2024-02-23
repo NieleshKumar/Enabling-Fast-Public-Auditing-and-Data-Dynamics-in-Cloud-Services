@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+{% block content %}
+<section class="about_section layout_padding">
+  <div class="container ">
+    <div class="heading_container">
+
+      <h2 style="bottom: 80px;">
+        Enabling Fast Public Auditing and Data Dynamics in Cloud Services
+      </h2>
+    </div>
+
+    <center>
+      <div class="col-md-6">
+        <div class="detail-box">
+          <center>
+            <h3>
+              User Login
+            </h3>
+
+            {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="{% url 'userlogin' %}" class="form-control" method="post" style="height:10rem;">
+              {% csrf_token %}
+              <div class="mb-3">
+                
+                <input type="email" placeholder="Enter Email Id" class="form-control" id="staticEmail" name="useremail" required style="
+                        width: 394px;text-align:center;">
+              </div>
+              <div class="mb-3">
+                
+                <input type="password" class="form-control" id="inputPassword" name="userpassword" placeholder="Enter Password" required style="
+                        width: 394px;text-align:center;
+                    ">
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Login</button>
+              </div>
+              <a style="color:blue;" href="{% url 'useregister' %}" type="submit">Don't have an account?
+                Registration</a>
+            </form>
+
+        </div>
+      </div>
+    </center>
+  </div>
+  </div>
+</section>
+{% endblock %}

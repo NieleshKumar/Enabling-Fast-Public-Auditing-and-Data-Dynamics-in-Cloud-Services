@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% block content %}
+
+
+
+<center>
+    <div class="col-md-6">
+      <div class="detail-box">
+        <h3 style="color:white">
+          CSP Login
+        </h3>
+  
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+  
+        <form action="{% url 'csp' %}" class="form-control" style="height:20rem;" method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="formFile" class="form-label">CSP Email</label>
+            <input type="email" class="form-control" id="staticEmail" name="useremail" required style="
+                    width: 394px;
+                ">
+          </div>
+          <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">CSP Password</label>
+            <input type="password" class="form-control" id="inputPassword" name="userpassword" required style="
+                    width: 394px;
+                ">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Login</button>
+          </div>
+          <a style="color:blue;" href="{% url 'useregister' %}" type="submit">Don't have an account? Registration</a>
+        </form>
+  
+      </div>
+    </div>
+  </center>
+  
+
+
+
+
+{% endblock %}

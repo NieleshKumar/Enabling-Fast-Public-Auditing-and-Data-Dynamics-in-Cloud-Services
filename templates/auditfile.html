@@ -1,0 +1,63 @@
+{% extends "userhome.html" %}
+{% block content %}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<center>
+    <h3 style="color:white">Audit Files</h3>
+</center>
+<div class="card" style="overflow:scroll;height:32rem" >
+    <table >
+        <th style="text-align:center;color:black;">User Id</th>
+        <th style="text-align:center;color:black;">File Name</th>
+        <th style="text-align:center;color:black;">Uploadeddate</th>
+        <th style="text-align:center;color:black;">Blockone Hash</th>
+        <th style="text-align:center;color:black;">Blocktwo Hash</th>
+        <th style="text-align:center;color:black;">Blockthree Hash</th>
+        <th style="text-align:center;color:black;">Blockfour Hash</th>
+        <th style="text-align:center;color:black;">Request</th>
+
+        <tr>
+
+
+            {% for i in dc %}
+        <tr>
+            <td style="text-align:center;color:black;">{{i.id}}</td>
+            <td style="text-align:center;color:black;">{{i.filename}}</td>
+            <td style="text-align:center;color:black;">{{i.uploadeddate}}</td>
+            <td style="text-align:center;color:black;">{{i.hashcodeone}}</td>
+            <td style="text-align:center;color:black;">{{i.hashcodetwo}}</td>
+            <td style="text-align:center;color:black;">{{i.hashcodethree}}</td>
+            <td style="text-align:center;color:black;">{{i.hashcodefour}}</td>
+            <td style="text-align:center;color:black;"><a href="{% url 'auditmyfiles' i.id i.filename %}"
+                    class="btn btn-info">Send to Audit</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

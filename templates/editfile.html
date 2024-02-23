@@ -1,0 +1,92 @@
+{% extends "csphome.html" %}
+{% block content %}
+
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<center>
+    <h2 style="color:white">Edit Files</h2>
+    <div class="card" style="width:40rem;">
+        <form action="{% url 'updatecontent' %}" class="form-control" style="height:22rem;width:39rem;" method="post">
+            {% csrf_token %}
+
+            <div class="mb-3 row">
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="staticEmail" name="id" value="{{id}}" hidden readonly>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">File Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="staticEmail" name="filename" value="{{filename}}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Block 1</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword" name="block1" value="{{data1}}">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Block 2</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword" name="block2" value="{{data2}}">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Block 3</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword" name="block3" value="{{data3}}">
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Block 4</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword" name="block4" value="{{data4}}">
+                </div>
+            </div>
+
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Update</button>
+            </div>
+        </form>
+    </div>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
