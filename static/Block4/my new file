@@ -1,0 +1,5 @@
+ a parameter to another function.
+
+You can return the function from a function.
+
+You can store them in data structures such as hash tables, lists etc ..

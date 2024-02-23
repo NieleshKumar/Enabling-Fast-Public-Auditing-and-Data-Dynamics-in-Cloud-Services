@@ -1,0 +1,1 @@
+st Class functions.Properties:A function is an instance of the Object type.You can store the function in a variable.You can pass the function as
